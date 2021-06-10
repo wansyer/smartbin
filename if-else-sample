@@ -1,0 +1,20 @@
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);  // LED on pin 13 of UNO
+}
+
+void loop() {
+  char rx_byte;
+  
+  if (Serial.available() > 0) {    // is a character available?
+    rx_byte = Serial.read();
+    if (rx_byte == 'a') {
+      // switch the LED on if the character 'a' is received
+      digitalWrite(13, HIGH);
+    }
+    else {
+      // switch the LED off if any character except 'a' is received
+      digitalWrite(13, LOW);
+    }
+  }
+}
